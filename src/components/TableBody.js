@@ -23,10 +23,3 @@ function TableBody({users}) {
 }
 
 export default TableBody;
-
-// email
-// name.first name.last
-// phone
-// picture.thumbnail
-// location.city + location.state
-// Key= login.uuid

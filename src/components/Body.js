@@ -1,16 +1,27 @@
-import React from "react";
+import { render } from "@testing-library/react";
+import React, { Component } from "react";
 import API from "../utils/API";
 
-function Body() {
-  API.getUsers().then((res) => {
-    console.log(res.data.results);
-  });
+export default class Body extends Component {
+  state = {
+    users: [],
+    filteredUsers: [],
+  };
 
-  return (
-    <div>
-      <p>hi</p>
-    </div>
-  );
+  componentDidMount() {
+    API.getUsers().then((res) => {
+        this.setState({
+            users: res.data.results,
+        })
+      console.log(this.state);
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>hi</p>
+      </div>
+    );
+  }
 }
-
-export default Body;
